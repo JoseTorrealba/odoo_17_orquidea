@@ -1,0 +1,33 @@
+FROM odoo:17.0
+
+USER root
+
+# Instalar dependencias adicionales
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    build-essential \
+    python3-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    libldap2-dev \
+    libsasl2-dev \
+    libtiff5-dev \
+    libjpeg62-turbo-dev \
+    libopenjp2-7-dev \
+    zlib1g-dev \
+    libfreetype6-dev \
+    liblcms2-dev \
+    libwebp-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    libxcb1-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Crear directorio para módulos personalizados
+RUN mkdir -p /mnt/extra-addons
+
+# Cambiar permisos
+RUN chown -R odoo:odoo /mnt/extra-addons
+
+# Volver al usuario odoo
+USER odoo

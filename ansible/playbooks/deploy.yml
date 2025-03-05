@@ -1,0 +1,5 @@
+---
+- hosts: kubernetes
+  gather_facts: yes
+  roles:
+    - role: k8s-deploy 

@@ -1,0 +1,26 @@
+{
+    'name': 'Uber Delivery Integration',
+    'version': '17.0.1.0.0',
+    'category': 'Inventory/Delivery',
+    'summary': 'Integrate Uber Direct delivery service with Odoo',
+    'author': 'Your Company',
+    'website': 'https://www.yourcompany.com',
+    'license': 'LGPL-3',
+    'depends': [
+        'delivery',
+        'sale_stock',
+        'stock',
+        'mail',
+    ],
+    'data': [
+        'security/security_rules.xml',
+        'security/ir.model.access.csv',
+        'data/uber_delivery_data.xml',
+        'views/res_config_settings_views.xml',
+        'views/uber_delivery_request_views.xml',
+    ],
+    'demo': [],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+} 

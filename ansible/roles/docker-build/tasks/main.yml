@@ -1,0 +1,24 @@
+---
+- name: Create build directory
+  file:
+    path: "{{ build_dir }}"
+    state: directory
+
+- name: Copy Dockerfile
+  copy:
+    src: "{{ playbook_dir }}/../../Dockerfile"
+    dest: "{{ build_dir }}/Dockerfile"
+
+- name: Copy Odoo module
+  copy:
+    src: "{{ playbook_dir }}/../../addons/"
+    dest: "{{ build_dir }}/addons/"
+
+- name: Build Docker image
+  docker_image:
+    build:
+      path: "{{ build_dir }}"
+    name: "{{ docker_registry }}/{{ docker_image }}"
+    tag: "{{ docker_tag }}"
+    push: yes
+    source: build 

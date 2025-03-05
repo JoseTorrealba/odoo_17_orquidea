@@ -1,0 +1,8 @@
+# Docker build variables
+docker_registry: "your-registry.com"
+docker_image: "odoo-uber"
+docker_tag: "17.0"
+
+# Kubernetes variables
+k8s_namespace: "odoo"
+k8s_context: "your-k8s-context" 
