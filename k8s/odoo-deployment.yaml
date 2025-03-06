@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: odoo
-        image: odoo:17.0
+        image: orquidea/odoo-uber:17.0
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8069
         volumeMounts:
@@ -31,6 +32,10 @@ spec:
           value: odoo
         - name: PASSWORD
           value: odoo
+        - name: DB_NAME
+          value: odoo
+        - name: POSTGRES_DB
+          value: postgres
       volumes:
       - name: odoo-data
         persistentVolumeClaim:

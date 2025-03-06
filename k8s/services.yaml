@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: odoo
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 8069
     targetPort: 8069
+    nodePort: 30069
   selector:
     app: odoo
 ---
